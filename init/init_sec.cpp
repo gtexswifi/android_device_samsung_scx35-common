@@ -43,6 +43,7 @@ enum device_variant {
 	G361H,
 	G531BT,
 	G531H,
+	T280,
 };
 
 device_variant match(std::string bl)
@@ -55,6 +56,8 @@ device_variant match(std::string bl)
                 return G361H;
         } else if (bl.find("G531BT") != std::string::npos) {
                 return G531BT;
+        } else if (bl.find("T280") != std::string::npos) {
+                return T280;
         } else {
                 return G531H;
         }
@@ -90,6 +93,11 @@ void vendor_load_properties()
 		        /* grandprimeve3gdtv */
         		property_set("ro.product.model", "SM-G531BT");
 		        property_set("ro.product.device", "grandprimeve3gdtv");
+			break;
+		case T280:
+		        /* gtexswifi */
+        		property_set("ro.product.model", "SM-T280");
+		        property_set("ro.product.device", "gtexswifi");
 			break;
 		case G531H:
 		default:

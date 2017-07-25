@@ -1,5 +1,7 @@
 # Kernel
-BOARD_CUSTOM_BOOTIMG_MK := device/samsung/scx35-common/mkbootimg.mk
+ifneq ($(TARGET_USES_CUSTOM_BOOTIMG_MK),true)
+	BOARD_CUSTOM_BOOTIMG_MK := device/samsung/scx35-common/mkbootimg.mk
+endif
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_TAGS_OFFSET := 0x01d88000
 BOARD_RAMDISK_OFFSET := 0x01000000
